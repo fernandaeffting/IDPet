@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon">
+    <title>Bem-vindo ao IDPet</title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-top: 50px;
+            justify-content: center;
+            margin: 0;
+            overflow-y: scroll;
+        }
+
+        /* Menu */
+        nav {
+            background-color: #2e5992;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul li:hover {
+            background-color:#f4b07c;
+            border-radius: 5px;
+        }
+
+        /* Submenu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2e5992;
+            padding: 10px 0;
+            list-style-type: none;
+            min-width: 200px;
+            z-index: 100;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            display: block;
+            text-align: left;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+    /* Cards */
+    .container {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .file-input-container {
+      margin-bottom: 15px;
+    }
+
+    .file-input-container input[type="file"] {
+      display: inline-block;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      width: calc(100%);
+    }
+
+    button.botao, .add-file-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+    .add-file-btn{
+      margin-left:230px;
+    }
+
+    .add-file-btn:hover, button.botao:hover {
+      background-color:#2e5992;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #fff;
+    }
+
+/* Footer*/
+    footer {
+        background-color: #2e5992;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: auto;
+        }
+
+</style>
+</head>
+<body>
+ <!-- Menu -->
+  <!-- Menu -->
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #2e5992;">
+    <ul style="list-style: none; margin: 0 auto; padding: 0; display: flex; gap: 30px; margin-left: 35%;">
+        <li><a href="../../index.html">Início</a></li>
+        <li>
+            <a href="#meuidpet">Meu IDPet</a>
+            <ul style="list-style: none; padding-left: 0px; margin: 0;">
+                <li><a href="../../cadastropet.html">Cadastrar um pet</a></li>
+                <li><a href="../../meuspets.html">Meus pets</a></li>
+            </ul>
+        </li>
+        <li><a href="../../contato.html">Contato</a></li>
+    </ul>
+    <div style="display: flex; gap: 10px;">
+        <a href="../../login.html" style="padding: 8px 15px; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;">Login</a>
+        <a href="../../criarconta.html" style="padding: 8px 15px; border: 1px solid #f4b07c; background-color: #f4b07c; color: white; border-radius: 4px; cursor: pointer;">Criar Conta</a>
+    </div>
+  </nav>
+
+<!-- Card -->
+<div class="container">
+    <h1>Outros exames</h1>
+    <form id="hemogram-form">
+      <div class="file-input-container">
+        <input type="file" name="hemograma" accept=".pdf,.jpg,.jpeg,.png" required>
+      </div>
+
+      <div class="d-grid gap-2 col-6 mx-auto" id="file-inputs-container"></div>
+        <button type="button" class="add-file-btn" onclick="addFileInput()">Anexar Mais</button>
+        <button class="botao" type="submit">Enviar Arquivos</button>
+      </div>
+    </form>
+  </div>
+  
+  <script>
+    function addFileInput() {
+      const fileInputsContainer = document.getElementById('file-inputs-container');
+      
+      const fileInputContainer = document.createElement('div');
+      fileInputContainer.classList.add('file-input-container');
+      
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.name = 'hemograma';
+      fileInput.accept = '.pdf,.jpg,.jpeg,.png';
+      fileInput.required = true;
+      
+      fileInputContainer.appendChild(fileInput);
+      fileInputsContainer.appendChild(fileInputContainer);
+    }
+    
+    document.getElementById('hemogram-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Arquivos enviados!');
+    });
+  </script>
+
+ <!-- Footer-->
+ <footer>
+  <p>&copy; 2024 IDPet. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

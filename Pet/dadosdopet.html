@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon" />
+    <title>Bem-vindo ao IDPet</title>
+    <style>
+        * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
+
+          body {
+              display: flex;
+              flex-direction: column;
+              min-height: 100vh;
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              padding-top: 50px;
+              margin: 0;
+              overflow-y: scroll;
+          }
+
+          /*menu*/
+          nav {
+              background-color: #2e5992;
+              position: fixed;
+              width: 100%;
+              top: 0;
+              left: 0;
+              padding: 10px 0;
+              z-index: 1000;
+          }
+
+          nav ul {
+              list-style-type: none;
+              text-align: center;
+          }
+
+          nav ul li {
+              display: inline-block;
+              margin: 0 20px;
+              position: relative;
+          }
+
+          nav ul li a {
+              color: white;
+              text-decoration: none;
+              font-size: 18px;
+              padding: 10px 15px;
+              display: block;
+          }
+
+          nav ul li:hover {
+              background-color:#f4b07c;
+              border-radius: 5px;
+          }
+
+          /*submenu*/
+          nav ul li ul {
+              display: none;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              background-color: #2e5992;
+              padding: 10px 0;
+              list-style-type: none;
+              min-width: 200px;
+              z-index: 100;
+          }
+
+          nav ul li:hover ul {
+              display: block;
+          }
+
+          nav ul li ul li {
+              display: block;
+              text-align: left;
+          }
+
+          nav ul li ul li a {
+              padding: 10px 20px;
+              font-size:
+              16px;
+          }
+
+          /*card*/
+      .container {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        margin: auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 25px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ccc;
+      }
+
+      th {
+        background-color: #7399ca;
+        color: white;
+      }
+
+      td{
+        padding-right: 100px;
+      }
+
+      .button {
+        background-color:#007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+        width:auto;
+        text-align: center;
+        margin: auto;
+      }
+
+      .button:hover {
+        background-color:#2e5992;
+      }
+
+      a {
+          text-decoration: none;
+          font-size: 14px;
+          color: #fff;
+      }
+
+      /* Footer*/
+      footer {
+              background-color: #2e5992;
+              color: white;
+              text-align: center;
+              padding: 10px;
+              margin-top: auto;
+          }
+    </style>
+  </head>
+  <body>
+  <!-- Menu -->
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #2e5992;">
+    <ul style="list-style: none; margin: 0 auto; padding: 0; display: flex; gap: 30px; margin-left: 35%;">
+        <li><a href="../index.html">Início</a></li>
+        <li>
+            <a href="#meuidpet">Meu IDPet</a>
+            <ul style="list-style: none; padding-left: 0px; margin: 0;">
+                <li><a href="../cadastropet.html">Cadastrar um pet</a></li>
+                <li><a href="../meuspets.html">Meus pets</a></li>
+            </ul>
+        </li>
+        <li><a href="../contato.html">Contato</a></li>
+    </ul>
+    <div style="display: flex; gap: 10px;">
+        <a href="../login.html" style="padding: 8px 15px; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;">Login</a>
+        <a href="../criarconta.html" style="padding: 8px 15px; border: 1px solid #f4b07c; background-color: #f4b07c; color: white; border-radius: 4px; cursor: pointer;">Criar Conta</a>
+    </div>
+  </nav>
+
+    <div class="container">
+      <h1>Dados do Pet</h1>
+      <table>
+        <tr>
+          <th>Nome do Pet</th>
+          <td>Aika</td>
+        </tr>
+        <tr>
+          <th>Data de Nascimento</th>
+          <td>12/03/2013</td>
+        </tr>
+        <tr>
+          <th>Gênero</th>
+          <td>Fêmea</td>
+        </tr>
+        <tr>
+          <th>Espécie</th>
+          <td>Cão</td>
+        </tr>
+        <tr>
+          <th>Raça</th>
+          <td>Yorkshire</td>
+        </tr>
+        <tr>
+          <th>Porte</th>
+          <td>Pequeno</td>
+        </tr>
+        <tr>
+          <th>Cor da Pelagem</th>
+          <td>Preta</td>
+        </tr>
+        <tr>
+          <th>Castrado</th>
+          <td>Sim</td>
+        </tr>
+      </table>
+      <button class="button">Editar Dados</button>
+    </div>
+
+    <!-- Footer-->
+    <footer>
+      <p>&copy; 2024 IDPet. Todos os direitos reservados.</p>
+    </footer>
+    
+  </body>
+</html>

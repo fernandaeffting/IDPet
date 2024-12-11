@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon" />
+    <title>Bem-vindo ao IDPet</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        padding-top: 50px;
+        background-color: #f4f4f4;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        overflow-y: scroll;
+      }
+
+      /* Menu */
+      nav {
+        background-color: #2e5992;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        z-index: 1000;
+      }
+
+      nav ul {
+        list-style-type: none;
+        text-align: center;
+      }
+
+      nav ul li {
+        display: inline-block;
+        margin: 0 20px;
+        position: relative;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 15px;
+        display: block;
+      }
+
+      nav ul li:hover {
+        background-color: #f4b07c;
+        border-radius: 5px;
+      }
+
+      /* Submenu */
+      nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #2e5992;
+        padding: 10px 0;
+        list-style-type: none;
+        min-width: 200px;
+      }
+
+      nav ul li:hover ul {
+        display: block;
+      }
+
+      nav ul li ul li {
+        display: block;
+        text-align: left;
+      }
+
+      nav ul li ul li a {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      /*Criar Conta*/
+      .signup-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
+        margin-top: 5%;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #2e5992;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #244d7a;
+      }
+
+      .link {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      .link a {
+        color: #2e5992;
+        text-decoration: none;
+      }
+
+      /* Footer*/
+      footer {
+        background-color: #2e5992;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: auto;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Menu -->
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #2e5992;">
+      <ul style="list-style: none; margin: 0 auto; padding: 0; display: flex; gap: 30px; margin-left: 35%;">
+        <li><a href="index.html">Início</a></li>
+        <li>
+          <a href="#meuidpet">Meu IDPet</a>
+          <ul style="list-style: none; padding-left: 0px; margin: 0;">
+            <li><a href="cadastropet.html">Cadastrar um pet</a></li>
+            <li><a href="meuspets.html">Meus pets</a></li>
+          </ul>
+        </li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <div style="display: flex; gap: 10px;">
+        <a href="login.html" style="padding: 8px 15px; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;">Login</a>
+        <a href="criarconta.html" style="padding: 8px 15px; border: 1px solid #f4b07c; background-color: #f4b07c; color: white; border-radius: 4px; cursor: pointer;">Criar Conta</a>
+      </div>
+    </nav>
+
+    <!--Criar Conta-->
+    <div class="signup-container">
+      <h1>Criar Conta</h1>
+      <form action="/processar-cadastro" method="POST">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Senha:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirmar Senha:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required />
+        </div>
+        <button type="submit">Criar Conta</button>
+      </form>
+      <div class="link">
+        <p>
+          Já tem uma conta?
+          <a href="login.html">Fazer Login</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer-->
+    <footer>
+      <p>&copy; 2024 IDPet. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>

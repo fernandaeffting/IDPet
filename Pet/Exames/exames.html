@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon">
+    <title>Bem-vindo ao IDPet</title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            overflow-y: scroll;
+        }
+
+        /* Menu */
+        nav {
+            background-color: #2e5992;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul li:hover {
+            background-color:#f4b07c;
+            border-radius: 5px;
+        }
+
+        /* Submenu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2e5992;
+            padding: 10px 0;
+            list-style-type: none;
+            min-width: 200px;
+            z-index: 100;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            display: block;
+            text-align: left;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 20px;
+            font-size: 
+            16px;
+        }
+
+    /* Card */
+    .card-container {
+      display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 950px;
+            margin: 80px auto 20px;
+    }
+
+    .card {
+      background-color: #2e5992;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      height: 350px;
+      padding: 60px;
+      text-align: center;
+      transition: transform 0.3s;
+      align-content: center;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-align: center;
+      white-space: normal;
+      max-width: 100%;
+      line-height: 1.4;
+      padding-right: 1px;
+    }
+
+    button {
+      background-color:#fff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    button:hover {
+      background-color:#f4b07c;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    footer {
+            background-color: #2e5992;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+    a {
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    /* Footer*/
+    footer {
+    background-color: #2e5992;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Menu -->
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #2e5992;">
+    <ul style="list-style: none; margin: 0 auto; padding: 0; display: flex; gap: 30px; margin-left: 35%;">
+        <li><a href="../../index.html">Início</a></li>
+        <li>
+            <a href="#meuidpet">Meu IDPet</a>
+            <ul style="list-style: none; padding-left: 0px; margin: 0;">
+                <li><a href="../../cadastropet.html">Cadastrar um pet</a></li>
+                <li><a href="../../meuspets.html">Meus pets</a></li>
+            </ul>
+        </li>
+        <li><a href="../../contato.html">Contato</a></li>
+    </ul>
+    <div style="display: flex; gap: 10px;">
+        <a href="../../login.html" style="padding: 8px 15px; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;">Login</a>
+        <a href="../../criarconta.html" style="padding: 8px 15px; border: 1px solid #f4b07c; background-color: #f4b07c; color: white; border-radius: 4px; cursor: pointer;">Criar Conta</a>
+    </div>
+  </nav>
+
+<!-- Cards -->
+        <div class="card-container">
+            <div class="card">
+              <h3>Hemogramas</h3>
+              <img src="../../Imagens\hemograma.png" alt="Icon Hemograma" width="60px" height="60px"><br><br>
+              <button><a href="hemograma.html">Ver mais</button></a>
+            </div>
+            <div class="card">
+              <h3>Urinálises</h3>
+              <img src="../../Imagens\urina.png" alt="Icon Urinálise" width="60px" height="60px"><br><br>
+              <button><a href="urinalise.html">Ver mais</button></a>
+            </div>
+            <div class="card">
+              <h3>Ultrassonografias</h3>
+              <img src="../../Imagens\us.png" alt="Icon Ultrassom" width="60px" height="60px"><br><br>
+              <button><a href="ultrassonografias.html">Ver mais</button></a>
+            </div>
+            <div class="card">
+              <h3>Radiografias</h3>
+              <img src="../../Imagens\rx.png" alt="Icon Radiografia" width="60px" height="60px"><br><br>
+              <button><a href="radiografias.html">Ver mais</button></a>
+            </div>
+            <div class="card">
+              <h3>Tomografias e Ressonâncias Magnéticas</h3>
+              <img src="../../Imagens\tomo.png" alt="Icon Tomografia" width="60px" height="60px"><br><br>
+              <button><a href="tomografias.html">Ver mais</button></a>
+            </div>
+            <div class="card">
+              <h3>Outros exames</h3>
+              <img src="../../Imagens\outrosexames.png" alt="Icon Outros Exames" width="60px" height="60px"><br><br>
+              <button><a href="outrosexames.html">Ver mais</button></a>
+            </div>
+          </div>
+
+         <!-- Footer-->
+    <footer>
+      <p>&copy; 2024 IDPet. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

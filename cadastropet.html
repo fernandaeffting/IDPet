@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon">
+    <title>Bem-vindo ao IDPet</title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-top: 50px;
+            margin: 0;
+            overflow-y: scroll;
+        }
+
+        /* Menu */
+        nav {
+            background-color: #2e5992;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul li:hover {
+            background-color: #f4b07c;
+            border-radius: 5px;
+        }
+
+        /* Submenu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2e5992;
+            padding: 10px 0;
+            list-style-type: none;
+            min-width: 200px;
+            
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            display: block;
+            text-align: left;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        /* Cadastro do pet */
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin:30px auto;
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .form-actions {
+            text-align: center;
+        }
+
+        .form-actions button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-actions button:hover {
+            background-color: #0056b3;
+        }
+        
+        a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #fff;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2e5992;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<!-- Menu -->
+<nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #2e5992;">
+  <ul style="list-style: none; margin: 0 auto; padding: 0; display: flex; gap: 30px; margin-left: 35%;">
+      <li><a href="index.html">Início</a></li>
+      <li>
+          <a href="#meuidpet">Meu IDPet</a>
+          <ul style="list-style: none; padding-left: 0px; margin: 0;">
+              <li><a href="cadastropet.html">Cadastrar um pet</a></li>
+              <li><a href="meuspets.html">Meus pets</a></li>
+          </ul>
+      </li>
+      <li><a href="contato.html">Contato</a></li>
+  </ul>
+  <div style="display: flex; gap: 10px;">
+      <a href="login.html" style="padding: 8px 15px; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;">Login</a>
+      <a href="criarconta.html" style="padding: 8px 15px; border: 1px solid #f4b07c; background-color: #f4b07c; color: white; border-radius: 4px; cursor: pointer;">Criar Conta</a>
+  </div>
+</nav>
+
+<!-- Formulário do pet -->
+<div class="form-container">
+  <h1>Cadastro de Pet</h1>
+  <form action="/cadastrar-pet" method="post">
+    <div class="form-group">
+      <label for="nome">Nome do Pet</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite o nome do pet" required>
+    </div>
+    <div class="form-group">
+      <label for="data-nascimento">Data de Nascimento</label>
+      <input type="date" id="data-nascimento" name="data-nascimento" required>
+    </div>
+    <div class="form-group">
+      <label for="genero">Gênero</label>
+      <select id="genero" name="genero" required>
+        <option value="" disabled selected>Selecione o gênero</option>
+        <option value="macho">Macho</option>
+        <option value="femea">Fêmea</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="especie">Espécie</label>
+      <select id="especie" name="especie" required>
+        <option value="">Selecione</option>
+        <option value="Cão">Cão</option>
+        <option value="Gato">Gato</option>
+        <option value="Outro">Outro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="raca">Raça</label>
+      <input type="text" id="raca" name="raca" placeholder="Digite a raça do pet" required>
+    </div>
+    <div class="form-group">
+      <label for="porte">Porte</label>
+      <select id="porte" name="porte" required>
+        <option value="">Selecione o porte</option>
+        <option value="Pequeno">Pequeno</option>
+        <option value="Médio">Médio</option>
+        <option value="Grande">Grande</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cor-pelagem">Cor da Pelagem</label>
+      <input type="text" id="cor-pelagem" name="cor-pelagem" placeholder="Digite a cor da pelagem" required>
+    </div>
+    <div class="form-group">
+      <label>Castrado</label>
+      <div>
+        <label class="radio-label">
+          <input type="radio" name="castrado" value="sim" required> Sim
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="castrado" value="nao" required> Não
+        </label>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit">Cadastrar</button>
+    </div>
+  </form>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2024 IDPet. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
